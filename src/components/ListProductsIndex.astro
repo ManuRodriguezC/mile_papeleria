@@ -1,0 +1,11 @@
+---
+import { cuadernos } from '../lib/cuadernos.ts';
+import Product from './Product.astro';
+---
+<div class="flex flex-wrap gap-5 justify-center items-center py-10">
+  {
+    cuadernos.map((cuaderno) => (
+      <Product {...cuaderno} />
+    ))
+  }
+</div>

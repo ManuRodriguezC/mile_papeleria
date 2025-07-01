@@ -1,0 +1,61 @@
+---
+import { generoPorProducto, tiposProducto } from "@/lib/tiposProductos";
+const { producto, genero } = Astro.params;
+---
+
+<div
+  id="menu"
+  class="fixed top-[250px] w-[18%] h-[60%] border-2 border-purple-900 rounded-2xl
+  shadow-2xl tarnsition-all duration-500 p-5 z-50 bg-purple-100">
+  <div>
+    <p>Genero</p>
+    <ul>
+      {
+        generoPorProducto[producto].map(prod => (
+          <li class="mb-4">
+            <a
+              href={`/productos/${producto}/${prod}/todos-los-productos/1`}
+              class="text-lg font-semibold text-purple-900 hover:underline">
+              {prod.toUpperCase()}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+
+    <div>
+    <p>Tipo de Producto</p>
+    <ul>
+      {
+        tiposProducto[producto].map(tipo => (
+          <li class="mb-4">
+            <a
+              href={`/productos/${producto}/${genero}/${tipo}/1`}
+              class="text-lg font-semibold text-purple-900 hover:underline">
+              {tipo.toUpperCase()}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</div>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const menu = document.getElementById('menu');
+    if (!menu) return;
+    if (window.scrollY > 50) {
+      menu.classList.add('top-[130px]');
+      menu.classList.add('h-[75%]');
+      menu.classList.remove('h-[60%]');
+      menu.classList.remove('top-[250px]');
+    } else {
+      menu.classList.remove('top-[130px]');
+      menu.classList.remove('h-[75%]');
+      menu.classList.add('h-[60%]');
+      menu.classList.add('top-[250px]');
+    }
+  })
+</script>

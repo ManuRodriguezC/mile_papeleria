@@ -1,0 +1,51 @@
+<header class="fixed h-auto w-full border-b bg-purple-900 z-50 rounded-b-2xl shadow-2xl">
+    <!-- <input
+        type="text"
+        placeholder="Buscar..."
+        class="absolute right-10 top-3 bg-white mt-2 rounded-md border px-3 py-1 text-lg focus:outline-none focus:ring"
+        /> -->
+    <nav class="flex flex-row items-center justify-around h-full px-4">
+        <!-- Sección izquierda -->
+        <ul class="flex space-x-8 text-2xl font-semibold text-white">
+            <li><a href="/productos/cuadernos/para-todos/todos-los-productos/1" class="hover:underline">Cuadernos</a></li>
+            <li><a href="/productos/papeleria/1" class="hover:underline">Papeleria</a></li>
+            <li><a href="/productos/variedades/1" class="hover:underline">Variedades</a></li>
+        </ul>
+        
+        <!-- Logo centrado con buscador -->
+        <div class="flex flex-col items-center justify-center">
+            <a href="/">
+                <img
+                id="image-logo"
+                src="/mile.jpg"
+                alt="Logo"
+                height="150"
+                width="150"
+                loading="lazy"
+                class="h-[150px] w-auto bg-white rounded-2xl my-2 transition-all duration-300" />
+            </a>
+        </div>
+        
+        <!-- Sección derecha -->
+        <ul class="flex space-x-8 text-2xl font-semibold text-white">
+            <li><a href="/productos/multiproductos/1" class="hover:underline">Multiproductos</a></li>
+            <li><a href="/productos/fiesta/1" class="hover:underline">Fiesta</a></li>
+            <li><a href="/productos/contacto/1" class="hover:underline">Contacto</a></li>
+        </ul>
+    </nav>
+</header>
+
+<script>
+    window.addEventListener('scroll', () => {
+        const image = document.getElementById('image-logo');
+        if (!image) return;
+        console.log(window.scrollY);
+        if (window.scrollY > 0) {
+            image.classList.add('h-[80px]');
+            image.classList.remove('h-[150px]');
+        } else {
+            image.classList.add('h-[150px]');
+            image.classList.remove('h-[80px]');
+        }
+    });
+</script>
