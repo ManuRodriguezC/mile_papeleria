@@ -105,6 +105,58 @@ const cuadernos_cosidos_niños_legend = Array.from({ length: 20 }, (_, i) => {
   };
 });
 
+const cuadernos_cosidos_niñas_senpol = Array.from({ length: 20 }, (_, i) => {
+  const num = i + 1;
+  return {
+    id: `cuaderno-cosido-niña-senpol-${num}`,
+    title: `Cuaderno Cosido Niña KLIPP SENPOL ${num}`,
+    image: `/images/cuadernos/cuaderno-cosido-niña-senpol-${num}.webp`,
+    slug: `cuaderno-cosido-klipp-niña-senpol-${num}`,
+    clase: 'cuaderno',
+    type: 'cosido',
+    gender: 'niña'
+  };
+});
+
+const cuadernos_argollados_niñas_senpol = Array.from({ length: 17 }, (_, i) => {
+  const num = i + 1;
+  return {
+    id: `cuaderno-argollado-niña-senpol-${num}`,
+    title: `Cuaderno Argollado Niña KLIPP SENPOL ${num}`,
+    image: `/images/cuadernos/cuaderno-argollado-niña-senpol-${num}.webp`,
+    slug: `cuaderno-argollado-klipp-niña-senpol-${num}`,
+    clase: 'cuaderno',
+    type: 'argollado',
+    gender: 'niña'
+  };
+});
+
+const cuadernos_cosidos_niños_senpol = Array.from({ length: 20 }, (_, i) => {
+  const num = i + 1;
+  return {
+    id: `cuaderno-cosido-niño-senpol-${num}`,
+    title: `Cuaderno Cosido Niño KLIPP SENPOL ${num}`,
+    image: `/images/cuadernos/cuaderno-cosido-niño-senpol-${num}.webp`,
+    slug: `cuaderno-cosido-klipp-niño-senpol-${num}`,
+    clase: 'cuaderno',
+    type: 'cosido',
+    gender: 'niño'
+  };
+});
+
+const cuadernos_argollados_niños_senpol = Array.from({ length: 15 }, (_, i) => {
+  const num = i + 1;
+  return {
+    id: `cuaderno-argollado-niño-senpol-${num}`,
+    title: `Cuaderno Argollado Niño KLIPP SENPOL ${num}`,
+    image: `/images/cuadernos/cuaderno-argollado-niño-senpol-${num}.webp`,
+    slug: `cuaderno-cosido-klipp-argollado-senpol-${num}`,
+    clase: 'cuaderno',
+    type: 'argollado',
+    gender: 'niño'
+  };
+});
+
 export const cuadernos = [
   ...cuadernos_cosidos_niñas_be_cool,
   ...cuadernos_durabook_niñas_be_cool,
@@ -114,4 +166,8 @@ export const cuadernos = [
   ...cuadernos_durabook_argollados_be_cool,
   ...cuadernos_cosidos_niñas_legend,
   ...cuadernos_cosidos_niños_legend,
+  ...cuadernos_cosidos_niñas_senpol,
+  ...cuadernos_argollados_niñas_senpol,
+  ...cuadernos_cosidos_niños_senpol,
+  ...cuadernos_argollados_niños_senpol
 ]

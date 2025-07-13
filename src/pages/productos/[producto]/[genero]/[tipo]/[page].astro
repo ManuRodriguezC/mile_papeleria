@@ -1,6 +1,7 @@
 ---
 import Layout from '@layouts/Layout.astro';
 import { cuadernos } from '@lib/cuadernos';
+import { variedades } from '@lib/variedades';
 import Product from '@components/Product.astro';
 import { productos, generoPorProducto, tiposProducto } from '@lib/tiposProductos';
 import AsideMenu from '@/components/AsideMenu.astro';
@@ -66,9 +67,20 @@ const genero = params.genero || 'para-todos';
 const tipo = params.tipo || 'todos-los-productos';
 const page = Number(params.page) || 1;
 
+// Buscar genero y determinar la lista
+let listaProductos = [];
+if (producto === 'cuadernos') {
+  listaProductos = cuadernos;
+} else if (producto === 'variedades') {
+  listaProductos = variedades;
+} else {
+  return Astro.redirect('/productos', 301);
+}
+
+// Filtra por genero
 const filteredProducts = genero === 'para-todos'
-  ? cuadernos
-  : cuadernos.filter(cuaderno => cuaderno.gender === genero);
+  ? listaProductos
+  : listaProductos.filter(cuaderno => cuaderno.gender === genero);
 
 const filteredProductsByType = tipo === 'todos-los-productos'
   ? filteredProducts
