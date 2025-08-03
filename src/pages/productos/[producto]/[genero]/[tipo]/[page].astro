@@ -1,7 +1,6 @@
 ---
 import Layout from '@layouts/Layout.astro';
-import { cuadernos } from '@lib/cuadernos';
-import { variedades } from '@lib/variedades';
+import { todosLosProductos } from '@lib/tiposProductos';
 import Product from '@components/Product.astro';
 import { productos, generoPorProducto, tiposProducto } from '@lib/tiposProductos';
 import AsideMenu from '@/components/AsideMenu.astro';
@@ -18,13 +17,13 @@ export function getStaticPaths() {
       for (const tipo of tiposProducto[producto]) {
         if (genero === "para-todos") {
           if (tipo === "todos-los-productos") {
-            const maxPages = Math.ceil(cuadernos.length / PRODUCTS_FOR_PAGE);
+            const maxPages = Math.ceil(todosLosProductos.length / PRODUCTS_FOR_PAGE);
             for (let page = 1; page <= maxPages; page++) {
               paths.push({ params: { producto, genero, tipo, page: String(page) } });
             }
           } else {
-            const filteredProducts = cuadernos.filter(
-              (cuaderno) => cuaderno.type === tipo
+            const filteredProducts = todosLosProductos.filter(
+              (product) => product.type === tipo
             );
             const maxPages = Math.ceil(filteredProducts.length / PRODUCTS_FOR_PAGE);
             for (let page = 1; page <= maxPages; page++) {
@@ -34,8 +33,8 @@ export function getStaticPaths() {
             }
           }
         } else {
-          const filteredProducts = cuadernos.filter(
-            (cuaderno) => cuaderno.gender === genero
+          const filteredProducts = todosLosProductos.filter(
+            (product) => product.gender === genero
           );
           if (tipo === "todos-los-productos") {
             const maxPages = Math.ceil(filteredProducts.length / PRODUCTS_FOR_PAGE);
@@ -44,7 +43,7 @@ export function getStaticPaths() {
             }
           } else {
             const filteredProductsByType = filteredProducts.filter(
-              (cuaderno) => cuaderno.type === tipo
+              (product) => product.type === tipo
             );
             const maxPages = Math.ceil(filteredProductsByType.length / PRODUCTS_FOR_PAGE);
             for (let page = 1; page <= maxPages; page++) {
@@ -60,6 +59,7 @@ export function getStaticPaths() {
   return paths;
 }
 
+
 const { params } = Astro;
 
 const producto = params.producto;
@@ -69,22 +69,16 @@ const page = Number(params.page) || 1;
 
 // Buscar genero y determinar la lista
 let listaProductos = [];
-if (producto === 'cuadernos') {
-  listaProductos = cuadernos;
-} else if (producto === 'variedades') {
-  listaProductos = variedades;
-} else {
-  return Astro.redirect('/productos', 301);
-}
+listaProductos = todosLosProductos.filter(prod => prod.clase === producto)
 
 // Filtra por genero
 const filteredProducts = genero === 'para-todos'
   ? listaProductos
-  : listaProductos.filter(cuaderno => cuaderno.gender === genero);
+  : listaProductos.filter(prod => prod.gender === genero);
 
 const filteredProductsByType = tipo === 'todos-los-productos'
   ? filteredProducts
-  : filteredProducts.filter(cuaderno => cuaderno.type === tipo);
+  : filteredProducts.filter(prod => prod.type === tipo);
 
 const numPages = Math.ceil(filteredProductsByType.length / PRODUCTS_FOR_PAGE);
 

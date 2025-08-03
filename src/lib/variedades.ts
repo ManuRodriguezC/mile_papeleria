@@ -1,4 +1,73 @@
-export const variedades = [
+function createslug(name: string) {
+  return name.replaceAll(" ", "-").toLowerCase()
+}
+
+function createMap (list: string[], clase: string, type: string, gender: string) {
+  return list.map((obj: string)=> {
+    return {
+      id: createslug(obj),
+      title: obj,
+      image: `/images/${clase}/${createslug(obj)}.webp`,
+      slug: createslug(obj),
+      clase: clase,
+      type: type,
+      gender: gender
+    }
+  })
+}
+
+const deportivos = [
+  "Cuerdas Saltarinas 2,5M 40730",
+  "Cuerdas Saltarinas 2,5M 40729",
+  "Balon Voleibol Sintetico Suave",
+  "Pin Pon Profesional 6uds",
+  "Pin Pon Profesional 60uds",
+  "Hula Hula Mediano 60cm",
+  "Balon Futbol Brillante Surtido",
+  "Balon Futbol Mate Surtido",
+  "Hula Hula Grande 70cm",
+  "Cuerdas Saltarinas",
+  "Pitos 2 und Blister Surtido",
+  "Pelota Tenis 3und",
+  "Pito Negro con Cordon 12unds",
+]
+
+const juegosDeMesa = [
+  "Dados 12 mm 9uds Blister Translucidos",
+  "Naipe Español",
+  "Naipe Poker Lujo",
+  "Dados 15mm 9uds Blister Blancos",
+  "Ajedrez Magnetico 20x10cm",
+  "Domino Pequeño",
+  "Domino Grande",
+  "Naipe Royal Poker",
+]
+
+const modisteria = [
+  "Alfiler de Cabeza",
+  "Metro Modisteria 1.5m",
+  "Metro Modisteria Caja Acrilica 1.5m",
+  "Tijeras Peluqueria Economica"
+]
+
+const chelines = [
+  "Chelin Metalizado",
+  "Ganchos Nodriza Plata",
+  "Chelin Metalizado Dorado",
+  "Chelin Metalizado Plata",
+  "Ganchos Nodriza Dorado",
+  "Chelin Gamuzado",
+  "Chelin Gamuzado Negro",
+  "Chelin Gamuzado Blanco",
+  "Chelin Gamuzado Azul",
+]
+
+const mapDeportes = createMap(deportivos, 'variedades', 'deportivos', 'para-todos')
+const mapJuegosDeMesa = createMap(juegosDeMesa, 'variedades', 'juegos-de-mesa', 'para-todos')
+const mapModisteria = createMap(modisteria, 'variedades', 'modisteria', 'para-todos')
+const mapChelinesyGanchos = createMap(chelines, 'variedades', 'chelines-&-ganchos', 'para-todos')
+
+const llaveros = [
   {
     id: `llavero-41254`,
     title: `Llavero Siliconado Argolla Metal Bull Dog Surtido`,
@@ -261,4 +330,12 @@ export const variedades = [
     type: 'llaveros',
     gender: 'niña'
   },
+]
+
+export const variedades = [
+  ...llaveros,
+  ...mapDeportes,
+  ...mapJuegosDeMesa,
+  ...mapModisteria,
+  ...mapChelinesyGanchos
 ]
