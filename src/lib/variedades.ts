@@ -62,10 +62,20 @@ const chelines = [
   "Chelin Gamuzado Azul",
 ]
 
+const decoraciones = [
+  "Accesorio de Decoración Flores Luz 1",
+  "Accesorio de Decoración Flores Luz 2",
+  "FIGURAS FLUORESCENTES NEÓN SURTIDO",
+  "FIGURAS FLUORESCENTES 25x31 NEÓN SURTIDO",
+  "Accesorio de Decoración Flores Luz 3",
+  "Accesorio de Decoración Flores Luz 4",
+]
+
 const mapDeportes = createMap(deportivos, 'variedades', 'deportivos', 'para-todos')
 const mapJuegosDeMesa = createMap(juegosDeMesa, 'variedades', 'juegos-de-mesa', 'para-todos')
 const mapModisteria = createMap(modisteria, 'variedades', 'modisteria', 'para-todos')
 const mapChelinesyGanchos = createMap(chelines, 'variedades', 'chelines-&-ganchos', 'para-todos')
+const mapDecoraciones = createMap(chelines, 'variedades', 'flores-&-figuras-decorativas', 'para-todos')
 
 const llaveros = [
   {
@@ -337,5 +347,6 @@ export const variedades = [
   ...mapDeportes,
   ...mapJuegosDeMesa,
   ...mapModisteria,
-  ...mapChelinesyGanchos
+  ...mapChelinesyGanchos,
+  ...mapDecoraciones
 ]

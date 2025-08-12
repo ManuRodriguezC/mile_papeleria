@@ -1,9 +1,13 @@
 ---
-import Layout from '@layouts/Layout.astro';
-import { todosLosProductos } from '@lib/tiposProductos';
-import Product from '@components/Product.astro';
-import { productos, generoPorProducto, tiposProducto } from '@lib/tiposProductos';
-import AsideMenu from '@/components/AsideMenu.astro';
+import Layout from "@layouts/Layout.astro";
+import { todosLosProductos } from "@lib/tiposProductos";
+import Product from "@components/Product.astro";
+import {
+  productos,
+  generoPorProducto,
+  tiposProducto,
+} from "@lib/tiposProductos";
+import AsideMenu from "@/components/AsideMenu.astro";
 
 export const prerender = true;
 const PRODUCTS_FOR_PAGE = 21;
@@ -17,15 +21,21 @@ export function getStaticPaths() {
       for (const tipo of tiposProducto[producto]) {
         if (genero === "para-todos") {
           if (tipo === "todos-los-productos") {
-            const maxPages = Math.ceil(todosLosProductos.length / PRODUCTS_FOR_PAGE);
+            const maxPages = Math.ceil(
+              todosLosProductos.length / PRODUCTS_FOR_PAGE
+            );
             for (let page = 1; page <= maxPages; page++) {
-              paths.push({ params: { producto, genero, tipo, page: String(page) } });
+              paths.push({
+                params: { producto, genero, tipo, page: String(page) },
+              });
             }
           } else {
             const filteredProducts = todosLosProductos.filter(
               (product) => product.type === tipo
             );
-            const maxPages = Math.ceil(filteredProducts.length / PRODUCTS_FOR_PAGE);
+            const maxPages = Math.ceil(
+              filteredProducts.length / PRODUCTS_FOR_PAGE
+            );
             for (let page = 1; page <= maxPages; page++) {
               paths.push({
                 params: { producto, genero, tipo, page: String(page) },
@@ -37,15 +47,21 @@ export function getStaticPaths() {
             (product) => product.gender === genero
           );
           if (tipo === "todos-los-productos") {
-            const maxPages = Math.ceil(filteredProducts.length / PRODUCTS_FOR_PAGE);
+            const maxPages = Math.ceil(
+              filteredProducts.length / PRODUCTS_FOR_PAGE
+            );
             for (let page = 1; page <= maxPages; page++) {
-              paths.push({ params: { producto, genero, tipo, page: String(page) } });
+              paths.push({
+                params: { producto, genero, tipo, page: String(page) },
+              });
             }
           } else {
             const filteredProductsByType = filteredProducts.filter(
               (product) => product.type === tipo
             );
-            const maxPages = Math.ceil(filteredProductsByType.length / PRODUCTS_FOR_PAGE);
+            const maxPages = Math.ceil(
+              filteredProductsByType.length / PRODUCTS_FOR_PAGE
+            );
             for (let page = 1; page <= maxPages; page++) {
               paths.push({
                 params: { producto, genero, tipo, page: String(page) },
@@ -59,26 +75,27 @@ export function getStaticPaths() {
   return paths;
 }
 
-
 const { params } = Astro;
 
 const producto = params.producto;
-const genero = params.genero || 'para-todos';
-const tipo = params.tipo || 'todos-los-productos';
+const genero = params.genero || "para-todos";
+const tipo = params.tipo || "todos-los-productos";
 const page = Number(params.page) || 1;
 
 // Buscar genero y determinar la lista
 let listaProductos = [];
-listaProductos = todosLosProductos.filter(prod => prod.clase === producto)
+listaProductos = todosLosProductos.filter((prod) => prod.clase === producto);
 
 // Filtra por genero
-const filteredProducts = genero === 'para-todos'
-  ? listaProductos
-  : listaProductos.filter(prod => prod.gender === genero);
+const filteredProducts =
+  genero === "para-todos"
+    ? listaProductos
+    : listaProductos.filter((prod) => prod.gender === genero);
 
-const filteredProductsByType = tipo === 'todos-los-productos'
-  ? filteredProducts
-  : filteredProducts.filter(prod => prod.type === tipo);
+const filteredProductsByType =
+  tipo === "todos-los-productos"
+    ? filteredProducts
+    : filteredProducts.filter((prod) => prod.type === tipo);
 
 const numPages = Math.ceil(filteredProductsByType.length / PRODUCTS_FOR_PAGE);
 
@@ -91,39 +108,90 @@ const listProductos = filteredProductsByType.slice(
   page * PRODUCTS_FOR_PAGE
 );
 
+const listGeneros = generoPorProducto[producto];
+const listTipos = tiposProducto[producto];
 ---
 
 <Layout>
   <div class="flex flex-col justify-center items-center py-5 px-10">
-    <div class="w-full flex flex-row justify-between">
-      <h1 class="font-bold text-2xl">{producto.toUpperCase()} - {genero}- {tipo}</h1>
-      <div>
-        <p class="italic">Numero de productos: {filteredProductsByType.length}</p>
-        <p>Pagina: {page} de {numPages}</p>
+    <div id="subnav" class="w-full px-8 py-2 rounded-3xl bg-purple-200 fixed top-0">
+      <div class="w-full flex flex-row justify-between items-center">
+        <div class="flex flex-row items-center gap-4">
+          <h2 class="text-xl border-r-2 border-purple-900 pr-4">
+            {producto.toUpperCase()}
+          </h2>
+          <div>
+            <ul>
+              {listGeneros.map((gen) => (
+                <li class="inline-block mr-4">
+                  <a
+                    href={`/productos/${producto}/${gen}/${tipo}/1`}
+                    class={`text-lg font-semibold text-purple-900 hover:underline ${gen === genero && "font-bold"}`}
+                  >
+                    {gen.toUpperCase()}
+                  </a>
+                </li>
+              ))}
+            </ul>
+                        <ul>
+              {listTipos.map((type) => (
+                <li class="inline-block mr-4">
+                  <a
+                    href={`/productos/${producto}/${genero}/${type}/1`}
+                    class={`text-lg font-semibold text-purple-900 hover:underline ${type === genero && "font-bold"}`}
+                  >
+                    {type.toUpperCase()}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div> 
         <div>
-          <a
-            href={page <= 1 ? '#' : `/productos/${producto}/${genero}/${tipo}/${page - 1}`}
-            onclick={page <= 1 ? 'event.preventDefault();' : undefined}
-            class={`text-blue-500 hover:underline ${page <= 1 && 'cursor-not-allowed opacity-50 pointer-events-none'}`}>
-            Anterior
-          </a>
-          <span class="mx-2">|</span>
-          <a
-            onclick={page >= numPages ? 'event.preventDefault();' : undefined}
-            href={`/productos/${producto}/${genero}/${tipo}/${Number(page) + 1}`}
-            class={`text-blue-500 hover:underline ${page >= numPages && 'cursor-not-allowed opacity-50 pointer-events-none'}`}>
-            Siguiente
-          </a>
+          <p class="italic">
+            Numero de productos: {filteredProductsByType.length}
+          </p>
+          <p>Pagina: {page} de {numPages}</p>
+          <div>
+            <a
+              href={page <= 1
+                ? "#"
+                : `/productos/${producto}/${genero}/${tipo}/${page - 1}`}
+              onclick={page <= 1 ? "event.preventDefault();" : undefined}
+              class={`text-blue-500 hover:underline ${page <= 1 && "cursor-not-allowed opacity-50 pointer-events-none"}`}
+            >
+              Anterior
+            </a>
+            <span class="mx-2">|</span>
+            <a
+              onclick={page >= numPages ? "event.preventDefault();" : undefined}
+              href={`/productos/${producto}/${genero}/${tipo}/${Number(page) + 1}`}
+              class={`text-blue-500 hover:underline ${page >= numPages && "cursor-not-allowed opacity-50 pointer-events-none"}`}
+            >
+              Siguiente
+            </a>
+          </div>
         </div>
       </div>
     </div>
-    <div class="h-screen flex">
-      <AsideMenu />
-      <div class="ml-[20%] w-[80%] flex flex-wrap gap-5 justify-center items-center">
-        {listProductos.map((cuaderno) => (
-          <Product {...cuaderno} />
-        ))}
+    <div id="products" class="h-screen flex mt-[70px]">
+      <div class="w-full flex flex-wrap gap-5 justify-center items-center">
+        {listProductos.map((cuaderno) => <Product {...cuaderno} />)}
+      </div>
     </div>
   </div>
-  </div>
 </Layout>
+
+<script>
+    window.addEventListener('scroll', () => {
+        const sub = document.getElementById('subnav');
+        if (!sub) return;
+        if (window.scrollY > 0) {
+            sub.classList.add('mt-[96px]');
+            sub.classList.remove('mt-[170px]');
+        } else {
+            sub.classList.add('mt-[170px]');
+            sub.classList.remove('mt-[96px]');
+        }
+    });
+</script>

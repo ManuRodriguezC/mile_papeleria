@@ -1,7 +1,8 @@
 import { cuadernos } from '@lib/cuadernos';
 import { variedades } from '@lib/variedades';
+import { fiestas } from './fiestas';
 
-type Producto = 'cuaderno' | 'papeleria' | 'variedades' | 'multiproductos' | 'fiesta' | 'contacto';
+type Producto = 'cuaderno' | 'papeleria' | 'variedades' | 'multiproductos' | 'fiestas' | 'contacto';
 
 
 export const productos: Producto[] = [
@@ -9,7 +10,7 @@ export const productos: Producto[] = [
   "papeleria",
   "variedades",
   "multiproductos",
-  "fiesta",
+  "fiestas",
   "contacto",
 ];
 
@@ -18,7 +19,7 @@ export const generoPorProducto = {
   papeleria: ["para-todos"],
   variedades: ["para-todos"],
   multiproductos: ["para-todos"],
-  fiesta: ["para-todos"],
+  fiestas: ["para-todos"],
   contacto: ["para-todos"],
 };
 
@@ -27,11 +28,12 @@ export const tiposProducto = {
   papeleria: ["para-todos"],
   variedades: ["todos-los-productos", "llaveros", "deportivos", "juegos-de-mesa", "modisteria", "chelines-&-ganchos", "flores-&-figuras-decorativas"],
   multiproductos: ["para-todos"],
-  fiesta: ["para-todos"],
+  fiestas: ["todos-los-productos", "globos"],
   contacto: ["para-todos"],
 }
 
 export const todosLosProductos = [
   ...cuadernos,
-  ...variedades
+  ...variedades,
+  ...fiestas,
 ]
