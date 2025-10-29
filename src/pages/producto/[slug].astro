@@ -1,0 +1,17 @@
+---
+import { todosLosProductos } from "@/lib/tiposProductos";
+import Layout from "@layouts/Layout.astro";
+const { slug } = Astro.params;
+const filterProduct = todosLosProductos.find(prod => prod.slug === slug);
+---
+<Layout>
+  <div>
+    <h1>{filterProduct?.title}</h1>
+    <img
+      src={filterProduct?.image}
+      alt={filterProduct?.title}
+      class="w-auto h-[300px] object-cover"
+      loading="lazy"
+    />
+  </div>
+</Layout>

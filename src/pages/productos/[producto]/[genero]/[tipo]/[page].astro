@@ -7,7 +7,6 @@ import {
   generoPorProducto,
   tiposProducto,
 } from "@lib/tiposProductos";
-import AsideMenu from "@/components/AsideMenu.astro";
 
 export const prerender = true;
 const PRODUCTS_FOR_PAGE = 21;
@@ -97,6 +96,8 @@ const filteredProductsByType =
     ? filteredProducts
     : filteredProducts.filter((prod) => prod.type === tipo);
 
+console.log(filteredProductsByType);
+
 const numPages = Math.ceil(filteredProductsByType.length / PRODUCTS_FOR_PAGE);
 
 if (page > numPages || page < 1) {
@@ -110,6 +111,12 @@ const listProductos = filteredProductsByType.slice(
 
 const listGeneros = generoPorProducto[producto];
 const listTipos = tiposProducto[producto];
+
+function capitalize(text: string) {
+  if (!text) return "";
+  const setText = text.replaceAll("-", " ");
+  return setText.charAt(0).toUpperCase() + setText.slice(1);
+}
 ---
 
 <Layout>
@@ -120,15 +127,16 @@ const listTipos = tiposProducto[producto];
           <h2 class="text-xl border-r-2 border-purple-900 pr-4">
             {producto.toUpperCase()}
           </h2>
-          <div>
+          <div class="flex flex-col gap-2">
             <ul>
               {listGeneros.map((gen) => (
                 <li class="inline-block mr-4">
                   <a
                     href={`/productos/${producto}/${gen}/${tipo}/1`}
-                    class={`text-lg font-semibold text-purple-900 hover:underline ${gen === genero && "font-bold"}`}
+                    class={`text-lg font-semibold text-purple-900 hover:underline
+                      ${gen === genero && "bg-white px-2 rounded-lg font-bold border-2 border-purple-900 text-xl"}`}
                   >
-                    {gen.toUpperCase()}
+                    {capitalize(gen)}
                   </a>
                 </li>
               ))}
@@ -138,9 +146,10 @@ const listTipos = tiposProducto[producto];
                 <li class="inline-block mr-4">
                   <a
                     href={`/productos/${producto}/${genero}/${type}/1`}
-                    class={`text-lg font-semibold text-purple-900 hover:underline ${type === genero && "font-bold"}`}
+                    class={`text-lg font-semibold text-purple-900 hover:underline 
+                      ${type === tipo && "bg-white px-2 rounded-lg font-bold border-2 border-purple-900 text-xl"}`}
                   >
-                    {type.toUpperCase()}
+                    {capitalize(type)}
                   </a>
                 </li>
               ))}
@@ -174,7 +183,7 @@ const listTipos = tiposProducto[producto];
         </div>
       </div>
     </div>
-    <div id="products" class="h-screen flex mt-[70px]">
+    <div id="products" class="h-screen flex mt-[90px] mb-10">
       <div class="w-full flex flex-wrap gap-5 justify-center items-center">
         {listProductos.map((cuaderno) => <Product {...cuaderno} />)}
       </div>
