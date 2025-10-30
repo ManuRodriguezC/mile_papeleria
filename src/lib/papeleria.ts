@@ -110,7 +110,7 @@ const escritura = [
     "name": "Resaltador Doble Trazo x6 uds"
   },
   {
-    "name": "Tiza Tablero 8 Cm Surtido x12 uds + Blanca x12 uds"
+    "name": "Tiza Tablero 8 Cm Surtido x12 uds Blanca x12 uds"
   },
   {
     "name": "Tiza Tablero 8 Cm x12 uds Blanca"
