@@ -21,10 +21,10 @@ function createMap (list: ProductoMap[], clase: string, type: string, gender: st
 
 const escritura = [
   {
-    "name": "Bolígrafo Retráctil Punta Fina 0.5 Tinta Negra Índigo x6uds"
+    "name": "Bolígrafo Retráctil Punta Fina 0,5 Tinta Negra Índigo x6uds"
   },
   {
-    "name": "Bolígrafo Doble Punta Lineal Y Sellos x6 uds. Surt"
+    "name": "Bolígrafo Doble Punta Lineal Y Sellos x6 uds Surt"
   },
   {
     "name": "Bolígrafo Fino Retráctil Negro x2 Uds Azul o Gris"
@@ -91,7 +91,7 @@ const escritura = [
     "description": "Encuentralo en colores amarillo, azul, blanco, morado, natural, negro, naranja, rojo, rosado, turquesa, verde y vino tinto."
   },
   {
-    "name": "Marcador Doble Punta Estuche x24 Uds.",
+    "name": "Marcador Doble Punta Estuche x24 Uds",
     "description": "Encuentralo en estuche de 12, 24, 36 y 48 unidades." 
   },
   {
@@ -155,52 +155,52 @@ const arte = [
     "name": "Acuarela 12 Ml x12 uds Colores"
   },
   {
-    "name": "Acuarela 12 Colores Metalizado Círculos + Pincel Acrílico"
+    "name": "Acuarela 12 Colores Metalizado Círculos Pincel Acrílico"
   },
   {
-    "name": "Acuarela Grande 12 Colores + Pincel"
+    "name": "Acuarela Grande 12 Colores Pincel"
   },
   {
     "name": "Plato Mezclador Pinturas"
   },
   {
-    "name": "Acuarela Tapa 12 Colores + Pincel Azul"
+    "name": "Acuarela Tapa 12 Colores Pincel Azul"
   },
   {
-    "name": "Acuarela 12 Colores Metalizado Cuadros + Pincel Acrílico"
+    "name": "Acuarela 12 Colores Metalizado Cuadros Pincel Acrílico"
   },
   {
-    "name": "Acuarela 12 Colores Neón Círculos + Pincel Acrílico"
+    "name": "Acuarela 12 Colores Neón Círculos Pincel Acrílico"
   },
   {
-    "name": "Acuarela 24 Colores Metalizado Cuadros + Pincel Acrílico"
+    "name": "Acuarela 24 Colores Metalizado Cuadros Pincel Acrílico"
   },
   {
-    "name": "Acuarela 36 Colores Círculos + Pincel Acrílico"
+    "name": "Acuarela 36 Colores Círculos Pincel Acrílico"
   },
   {
-    "name": "Acuarela Set 36 Colores + Accesorios Caja Metálica"
+    "name": "Acuarela Set 36 Colores Accesorios Caja Metálica"
   },
   {
-    "name": "Acuarela 48 Colores Círculos + Pincel Acrílico"
+    "name": "Acuarela 48 Colores Círculos Pincel Acrílico"
   },
   {
-    "name": "Lienzo 15 X 15 Cm 280 Gr + Caballete"
+    "name": "Lienzo 15 X 15 Cm 280 Gr Caballete"
   },
   {
     "name": "Lienzo 20 X 30 Cm 280 Gr"
   },
   {
-    "name": "Lienzo 25 X 30 Cm 280 Gr + Caballete"
+    "name": "Lienzo 25 X 30 Cm 280 Gr Caballete"
   },
   {
-    "name": "Lienzo Impreso 15 X 15 Cm 280 Gr + Caballete"
+    "name": "Lienzo Impreso 15 X 15 Cm 280 Gr Caballete"
   },
   {
-    "name": "Lienzo Impreso 20 X 30 Cm 280 Gr + Caballete"
+    "name": "Lienzo Impreso 20 X 30 Cm 280 Gr Caballete"
   },
   {
-    "name": "Lienzo Impreso 24 X 30 Cm 280 Gr + Caballete"
+    "name": "Lienzo Impreso 24 X 30 Cm 280 Gr Caballete"
   },
   {
     "name": "Lienzo Redondo 20 Cm 280 Gr"
@@ -209,7 +209,7 @@ const arte = [
     "name": "Lienzo Hexagonal 20 Cm 280 Gr"
   },
   {
-    "name": "Óleo 12 Ml x12 uds. Colores"
+    "name": "Óleo 12 Ml x12 uds Colores"
   },
   {
     "name": "Acrílico 12 Ml x12 uds Colores"
@@ -242,7 +242,7 @@ const arte = [
     "name": "Set Troquel 6 Figuras 1 Cm Intercambiable Surtido"
   },
   {
-    "name": "Set Troquel Figuras 1 Cm 4 Uds Surtido+ Tijera Zigzag"
+    "name": "Set Troquel Figuras 1 Cm 4 Uds Surtido Tijera Zigzag"
   },
   {
     "name": "Troquel Corona 1,5 Cm"
@@ -260,7 +260,7 @@ const arte = [
     "name": "Pinceles Juego 7 Uds Surtido"
   },
   {
-    "name": "Brocha N° Plano"
+    "name": "Brocha N Plano"
   },
   {
     "name": "Silicona Barra Delgada 700 Gramos"
@@ -306,7 +306,7 @@ const arte = [
 
 const oficina = [
   {
-    "name": "Tijera Oficina 5.5 Pastel"
+    "name": "Tijera Oficina 5,5 Pastel"
   },
   {
     "name": "Portaplanos 8 X 65 Cm Extensible"
@@ -448,16 +448,16 @@ const oficina = [
     "name": "Notas Banderitas 200 Hojas 10 Col Surtido"
   },
   {
-    "name": "Notas Adhesivas 76 X 76 Mm 400 Hojas + Banderitas 5 Col"
+    "name": "Notas Adhesivas 76 X 76 Mm 400 Hojas Banderitas 5 Col"
   },
   {
     "name": "Notas Adhesivas Set 8 Figuras X 60 Hojas"
   },
   {
-    "name": "Set Escritura Lápiz + Notas + Accesorios Flores"
+    "name": "Set Escritura Lápiz Notas Accesorios Flores"
   },
   {
-    "name": "Portataco Plástico + Taco 400 Hojas Surtido"
+    "name": "Portataco Plástico Taco 400 Hojas Surtido"
   },
   {
     "name": "Portataco Metálico Pastel"
@@ -472,10 +472,10 @@ const oficina = [
     "name": "Escritorio Luxury 100X50 Cm Cajones Negro"
   },
   {
-    "name": "Escritorio London 80+129X46 Cm En L Madera Negro"
+    "name": "Escritorio London 80 129X46 Cm En L Madera Negro"
   },
   {
-    "name": "Escritorio Kioto 110+120X48Cm En L Madera Arena"
+    "name": "Escritorio Kioto 110 120X48Cm En L Madera Arena"
   },
   {
     "name": "Silla Sonegro Interloc Brazos Cromado Blanco"
@@ -555,7 +555,7 @@ const oficina = [
     "name": "Planillero Oficio Plástico Gancho Metal Pastel"
   },
   {
-    "name": "Planillero Plástico Cm + Planeador Diario 60 Hojas"
+    "name": "Planillero Plástico Cm Planeador Diario 60 Hojas"
   },
   {
     "name": "Pad Mouse Rectangular Diseños 22 X 27 Cm"
@@ -571,7 +571,7 @@ const oficina = [
     "name": "Cosedora Alicate Hojas Metálica Pastel"
   },
   {
-    "name": "Cosedora Mini Plástica + Ganchos Rosado"
+    "name": "Cosedora Mini Plástica Ganchos Rosado"
   },
   {
     "name": "Perforadora 2 Huecos 15-20 Hojas Pastel"
@@ -604,7 +604,7 @@ const oficina = [
     "name": "Dispensador Cinta Metálico Pastel"
   },
   {
-    "name": "Dispensador Cinta Pequeño + Cinta Blíster Pastel"
+    "name": "Dispensador Cinta Pequeño Cinta Blíster Pastel"
   },
   {
     "name": "Dispensador Cinta Grande Manual Pastel"
@@ -750,11 +750,11 @@ const papeles = [
 const tableros = [
   {
     "name": "Tablero Corcho 90 X 120 Cm",
-    "description": "Encuentralo en 90x120, 60x90 y 45x60 cm."
+    "description": "Encuentralo en 90x120, 60x90 y 45x60 cm"
   },
   {
     "name": "Tablero Acrílico Magnético 80 X 120 Cm",
-    "description": "Encuentralo en 90x120, 60x90 y 45x60 cm."
+    "description": "Encuentralo en 90x120, 60x90 y 45x60 cm"
   },
   {
     "name": "Tablero Acrílico Magnético Planeador Mensual 28 X 35 Cm"
@@ -781,7 +781,7 @@ const utiles = [
     "name": "Compás En Estuche"
   },
   {
-    "name": "Compás Escolar + Accesorios Estuche Surtido"
+    "name": "Compás Escolar Accesorios Estuche Surtido"
   },
   {
     "name": "Compás Escolar Estuche Curvo Pastel"
@@ -884,7 +884,7 @@ const utiles = [
     "name": "Borrador Eléctrico 22 Repuestos Blíster"
   },
   {
-    "name": "Borrador + Repuesto Unicornio"
+    "name": "Borrador Repuesto Unicornio"
   },
   {
     "name": "Caja Borrador Tajalápiz Astronauta"
