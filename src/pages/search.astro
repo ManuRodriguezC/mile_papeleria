@@ -1,0 +1,67 @@
+---
+import Product from "@/components/Product.astro";
+import Layout from "@/layouts/Layout.astro";
+import type { ProductComplete } from "@/lib/tiposProductos";
+import { todosLosProductos } from "@/lib/tiposProductos";
+
+const url = new URL(Astro.request.url);
+const name = url.searchParams.get("name"); // obtiene el ?q=
+
+function normalizeText(text: string) {
+  return text
+    .normalize("NFD")               // separa las tildes del carácter base
+    .replace(/[\u0300-\u036f]/g, "") // elimina los signos diacríticos
+    .toLowerCase()                  // ignora mayúsculas/minúsculas
+    .trim();                        // elimina espacios al inicio/final
+}
+
+function searchInList(list: ProductComplete[], query: string): ProductComplete[] {
+  if (!query) return [];
+  const normalizedQuery = normalizeText(query);
+  
+  return list.filter(item => {
+    const normalizedTitle = normalizeText(item.title);
+    const normalizedDescription = normalizeText(item.description);
+    return (
+      normalizedTitle.includes(normalizedQuery) ||
+      normalizedDescription.includes(normalizedQuery)
+    );
+  });
+}
+
+
+const searchProducts: ProductComplete[] = name
+  ? searchInList(todosLosProductos, name)
+  : [];
+
+---
+<Layout>
+  <div class="py-5 px-10 flex flex-col items-center">
+    <div class="w-full flex flex-col items-end">
+      <h1 class="text-lg font-semibold text-gray-500">Has buscado productos por <span class="text-black font-bold text-xl italic">{name}</span></h1>
+      <p class="italic text-lg">Se han encontrado {searchProducts?.length} productos</p>
+    </div>
+    <div id="products" class="min-h-[200px] flex mt-[90px] mb-10">
+      <div class="w-full flex flex-wrap gap-5 justify-center items-center">
+        {
+          searchProducts.length  > 0 && searchProducts
+          ?
+            <div class="w-full flex flex-wrap gap-5 justify-center items-center">
+              {searchProducts.map((prod) => <Product {...prod} />)}
+            </div>
+          :
+          <div class="flex flex-col justify-center items-center">
+            <p class="font-mono">No se han encontrado productos que coincidan con tu búsqueda.</p>
+            <img
+              src="/not_search.jpg"
+              height="350"
+              width="150"
+              loading="lazy"
+              class="h-[300px] w-auto object-cover mb-4"
+              alt="No se encontraron productos"/>
+          </div>
+        } 
+      </div>
+    </div>
+  </div>
+</Layout>

@@ -9,7 +9,8 @@ const cuadernos_cosidos_niñas_be_cool = Array.from({ length: 29 }, (_, i) => {
     slug: `cuaderno-cosido-niña-klipp-be-cool-${num}`,
     clase: 'cuaderno',
     type: 'cosido',
-    gender: 'niña'
+    gender: 'niña',
+    description: ''
   };
 });
 
@@ -22,7 +23,8 @@ const cuadernos_durabook_niñas_be_cool = Array.from({ length: 8 }, (_, i) => {
     slug: `cuaderno-durabook-niña-klipp-be-cool-${num}`,
     clase: 'cuaderno',
     type: 'durabook',
-    gender: 'niña'
+    gender: 'niña',
+    description: ''
   };
 });
 
@@ -35,7 +37,8 @@ const cuadernos_argollados_niñas_be_cool = Array.from({ length: 34 }, (_, i) =>
     slug: `cuaderno-argollado-niña-klipp-be-cool-${num}`,
     clase: 'cuaderno',
     type: 'argollado',
-    gender: 'niña'
+    gender: 'niña',
+    description: ''
   };
 });
 
@@ -48,7 +51,8 @@ const cuadernos_cosidos_niños_be_cool = Array.from({ length: 30 }, (_, i) => {
     slug: `cuaderno-cosido-niño-klipp-be-cool-${num}`,
     clase: 'cuaderno',
     type: 'cosido',
-    gender: 'niño'
+    gender: 'niño',
+    description: ''
   };
 });
 
@@ -61,7 +65,8 @@ const cuadernos_durabook_niños_be_cool = Array.from({ length: 8 }, (_, i) => {
     slug: `cuaderno-durabook-niño-klipp-be-cool-${num}`,
     clase: 'cuaderno',
     type: 'durabook',
-    gender: 'niño'
+    gender: 'niño',
+    description: ''
   };
 });
 
@@ -74,7 +79,8 @@ const cuadernos_durabook_argollados_be_cool = Array.from({ length: 25 }, (_, i) 
     slug: `cuaderno-argollado-niño-klipp-be-cool-${num}`,
     clase: 'cuaderno',
     type: 'argollado',
-    gender: 'niño'
+    gender: 'niño',
+    description: ''
   };
 });
 
@@ -88,7 +94,8 @@ const cuadernos_cosidos_niñas_legend = Array.from({ length: 20 }, (_, i) => {
     slug: `cuaderno-cosido-klipp-niña-legend-${num}`,
     clase: 'cuaderno',
     type: 'cosido',
-    gender: 'niña'
+    gender: 'niña',
+    description: ''
   };
 });
 
@@ -101,7 +108,8 @@ const cuadernos_cosidos_niños_legend = Array.from({ length: 20 }, (_, i) => {
     slug: `cuaderno-cosido-klipp-niño-legend-${num}`,
     clase: 'cuaderno',
     type: 'cosido',
-    gender: 'niño'
+    gender: 'niño',
+    description: ''
   };
 });
 
@@ -114,7 +122,8 @@ const cuadernos_cosidos_niñas_senpol = Array.from({ length: 20 }, (_, i) => {
     slug: `cuaderno-cosido-klipp-niña-senpol-${num}`,
     clase: 'cuaderno',
     type: 'cosido',
-    gender: 'niña'
+    gender: 'niña',
+    description: ''
   };
 });
 
@@ -127,7 +136,8 @@ const cuadernos_argollados_niñas_senpol = Array.from({ length: 17 }, (_, i) => 
     slug: `cuaderno-argollado-klipp-niña-senpol-${num}`,
     clase: 'cuaderno',
     type: 'argollado',
-    gender: 'niña'
+    gender: 'niña',
+    description: ''
   };
 });
 
@@ -140,7 +150,8 @@ const cuadernos_cosidos_niños_senpol = Array.from({ length: 20 }, (_, i) => {
     slug: `cuaderno-cosido-klipp-niño-senpol-${num}`,
     clase: 'cuaderno',
     type: 'cosido',
-    gender: 'niño'
+    gender: 'niño',
+    description: ''
   };
 });
 
@@ -153,7 +164,8 @@ const cuadernos_argollados_niños_senpol = Array.from({ length: 15 }, (_, i) => 
     slug: `cuaderno-cosido-klipp-argollado-senpol-${num}`,
     clase: 'cuaderno',
     type: 'argollado',
-    gender: 'niño'
+    gender: 'niño',
+    description: ''
   };
 });
 

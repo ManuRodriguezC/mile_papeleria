@@ -1,13 +1,11 @@
-interface Producto {
-  name: string;
-  description?: string;
-}
+import type { ProductoMap } from "./tiposProductos";
+
 function createslug(name: string) {
   return name.replaceAll(" ", "-")
 }
 
-function createMap (list: Producto[], clase: string, type: string, gender: string) {
-  return list.map((obj: Producto)=> {
+function createMap (list: ProductoMap[], clase: string, type: string, gender: string) {
+  return list.map((obj: ProductoMap)=> {
     return {
       id: createslug(obj.name),
       title: obj.name,
@@ -21,7 +19,7 @@ function createMap (list: Producto[], clase: string, type: string, gender: strin
   })
 }
 
-const boligrafos = [
+const escritura = [
   {
     "name": "Bolígrafo Retráctil Punta Fina 0.5 Tinta Negra Índigo x6uds"
   },
@@ -119,7 +117,10 @@ const boligrafos = [
   },
   {
     "name": "Tiza Tablero 8 Cm x12 uds Surtido"
-  },
+  }
+]
+
+const arte = [
   {
     "name": "Estuche Arte Tipo Maleta 150 Pzas"
   },
@@ -300,7 +301,10 @@ const boligrafos = [
   },
   {
     "name": "Formas Surtido Madera X 50 Pzas Col"
-  },
+  }
+]
+
+const oficina = [
   {
     "name": "Tijera Oficina 5.5 Pastel"
   },
@@ -715,8 +719,11 @@ const boligrafos = [
   },
   {
     "name": "Tarjetero 240 Compartimentos"
-  },
-    {
+  }
+]
+
+const papeles = [
+  {
     "name": "Lamina De Corcho 3Mm 6Pzas 20*30Cm"
   },
   {
@@ -737,7 +744,10 @@ const boligrafos = [
   },
   {
     "name": "Cartón Paja 1-8 50 Uds"
-  },
+  }
+]
+
+const tableros = [
   {
     "name": "Tablero Corcho 90 X 120 Cm",
     "description": "Encuentralo en 90x120, 60x90 y 45x60 cm."
@@ -757,7 +767,10 @@ const boligrafos = [
   },
   {
     "name": "Tablero Acrílico Magnético 29x29 Cm Borde Surtido"
-  },
+  }
+]
+
+const utiles = [
   {
     "name": "Compás Metálico Mina Pastel"
   },
@@ -935,7 +948,10 @@ const boligrafos = [
   },
   {
     "name": "Cinta Correctora 5 Mm 5 M 3 Uds Surtido"
-  },
+  }
+]
+
+const agendas = [
   {
     "name": "Cuaderno 95-2 Peluche Espacial"
   },
@@ -962,8 +978,20 @@ const boligrafos = [
   },
 ]
 
-export const mapBiligrafos = createMap(boligrafos, 'papeleria', 'boligrafos', 'para-todos');
+export const mapEscritura = createMap(escritura, 'papeleria', 'escritura', 'para-todos');
+export const mapArte = createMap(arte, 'papeleria', 'arte', 'para-todos');
+export const mapOficina = createMap(oficina, 'papeleria', 'oficina', 'para-todos');
+export const mapPapeles = createMap(papeles, 'papeleria', 'papeles', 'para-todos');
+export const mapTableros = createMap(tableros, 'papeleria', 'tableros', 'para-todos');
+export const mapUtiles = createMap(utiles, 'papeleria', 'utiles', 'para-todos');
+export const mapAgendas = createMap(agendas, 'papeleria', 'agendas', 'para-todos');
 
 export const papeleria = [
-  ...mapBiligrafos,
+  ...mapEscritura,
+  ...mapArte,
+  ...mapOficina,
+  ...mapPapeles,
+  ...mapTableros,
+  ...mapUtiles,
+  ...mapAgendas
 ]

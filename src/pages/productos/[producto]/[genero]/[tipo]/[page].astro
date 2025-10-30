@@ -96,8 +96,6 @@ const filteredProductsByType =
     ? filteredProducts
     : filteredProducts.filter((prod) => prod.type === tipo);
 
-console.log(filteredProductsByType);
-
 const numPages = Math.ceil(filteredProductsByType.length / PRODUCTS_FOR_PAGE);
 
 if (page > numPages || page < 1) {
@@ -141,7 +139,7 @@ function capitalize(text: string) {
                 </li>
               ))}
             </ul>
-                        <ul>
+            <ul>
               {listTipos.map((type) => (
                 <li class="inline-block mr-4">
                   <a

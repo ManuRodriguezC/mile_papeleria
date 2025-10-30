@@ -1,75 +1,200 @@
+import type { ProductoMap } from "./tiposProductos";
+
+export interface Producto {
+  name: string;
+  description?: string;
+}
+
 function createslug(name: string) {
   return name.replaceAll(" ", "-").toLowerCase()
 }
 
-function createMap (list: string[], clase: string, type: string, gender: string) {
-  return list.map((obj: string)=> {
+function createMap (list: ProductoMap[], clase: string, type: string, gender: string) {
+  return list.map((obj: Producto)=> {
     return {
-      id: createslug(obj),
-      title: obj,
-      image: `/images/${clase}/${createslug(obj)}.webp`,
-      slug: createslug(obj),
+      id: createslug(obj.name),
+      title: obj.name,
+      image: `/images/${clase}/${createslug(obj.name)}.webp`,
+      slug: createslug(obj.name),
       clase: clase,
       type: type,
-      gender: gender
+      gender: gender,
+      description: "",
     }
   })
 }
 
 const deportivos = [
-  "Cuerdas Saltarinas 2,5M 40730",
-  "Cuerdas Saltarinas 2,5M 40729",
-  "Balon Voleibol Sintetico Suave",
-  "Pin Pon Profesional 6uds",
-  "Pin Pon Profesional 60uds",
-  "Hula Hula Mediano 60cm",
-  "Balon Futbol Brillante Surtido",
-  "Balon Futbol Mate Surtido",
-  "Hula Hula Grande 70cm",
-  "Cuerdas Saltarinas",
-  "Pitos 2 und Blister Surtido",
-  "Pelota Tenis 3und",
-  "Pito Negro con Cordon 12unds",
-]
+  {
+    "name": "Cuerdas Saltarinas 2,5M 40730",
+    "description": ""
+  },  
+  {
+    "name": "Cuerdas Saltarinas 2,5M 40729",
+    "description": ""
+  },   
+  {
+    "name": "Balon Voleibol Sintetico Suave",
+    "description": ""
+  },   
+  {
+    "name": "Pin Pon Profesional 6uds",
+    "description": ""
+  },   
+  {
+    "name": "Pin Pon Profesional 60uds",
+    "description": ""
+  },   
+  {
+    "name": "Hula Hula Mediano 60cm",
+    "description": ""
+  },   
+  {
+    "name": "Balon Futbol Brillante Surtido",
+    "description": ""
+  },   
+  {
+    "name": "Balon Futbol Mate Surtido",
+    "description": ""
+  },   
+  {
+    "name": "Hula Hula Grande 70cm",
+    "description": ""
+  },   
+  {
+    "name": "Cuerdas Saltarinas",
+    "description": ""
+  },   
+  {
+    "name": "Pitos 2 und Blister Surtido",
+    "description": ""
+  },   
+  {
+    "name": "Pelota Tenis 3und",
+    "description": ""
+  },   
+  {
+    "name": "Pito Negro con Cordon 12unds",
+  "description": ""},  ]
+
 
 const juegosDeMesa = [
-  "Dados 12 mm 9uds Blister Translucidos",
-  "Naipe Español",
-  "Naipe Poker Lujo",
-  "Dados 15mm 9uds Blister Blancos",
-  "Ajedrez Magnetico 20x10cm",
-  "Domino Pequeño",
-  "Domino Grande",
-  "Naipe Royal Poker",
-]
+  {
+    "name": "Dados 12 mm 9uds Blister Translucidos",
+    "description": ""
+  },  
+  {
+    "name": "Naipe Español",
+    "description": ""
+  },   
+  {
+    "name": "Naipe Poker Lujo",
+    "description": ""
+  },   
+  {
+    "name": "Dados 15mm 9uds Blister Blancos",
+    "description": ""
+  },   
+  {
+    "name": "Ajedrez Magnetico 20x10cm",
+    "description": ""
+  },   
+  {
+    "name": "Domino Pequeño",
+    "description": ""
+  },   
+  {
+    "name": "Domino Grande",
+    "description": ""
+  },   
+  {
+    "name": "Naipe Royal Poker",
+  "description": ""},  ]
+
 
 const modisteria = [
-  "Alfiler de Cabeza",
-  "Metro Modisteria 1.5m",
-  "Metro Modisteria Caja Acrilica 1.5m",
-  "Tijeras Peluqueria Economica"
+  {
+    "name": "Alfiler de Cabeza",
+    "description": ""
+  },  
+  {
+    "name": "Metro Modisteria 1.5m",
+    "description": ""
+  },   
+  {
+    "name": "Metro Modisteria Caja Acrilica 1.5m",
+    "description": ""
+  },   
+  {
+    "name": "Tijeras Peluqueria Economica",
+    "description": ""
+  }
 ]
+
 
 const chelines = [
-  "Chelin Metalizado",
-  "Ganchos Nodriza Plata",
-  "Chelin Metalizado Dorado",
-  "Chelin Metalizado Plata",
-  "Ganchos Nodriza Dorado",
-  "Chelin Gamuzado",
-  "Chelin Gamuzado Negro",
-  "Chelin Gamuzado Blanco",
-  "Chelin Gamuzado Azul",
-]
+  {
+    "name": "Chelin Metalizado",
+    "description": ""
+  },  
+  {
+    "name": "Ganchos Nodriza Plata",
+    "description": ""
+  },   
+  {
+    "name": "Chelin Metalizado Dorado",
+    "description": ""
+  },   
+  {
+    "name": "Chelin Metalizado Plata",
+    "description": ""
+  },   
+  {
+    "name": "Ganchos Nodriza Dorado",
+    "description": ""
+  },   
+  {
+    "name": "Chelin Gamuzado",
+    "description": ""
+  },   
+  {
+    "name": "Chelin Gamuzado Negro",
+    "description": ""
+  },   
+  {
+    "name": "Chelin Gamuzado Blanco",
+    "description": ""
+  },   
+  {
+    "name": "Chelin Gamuzado Azul",
+  "description": ""},  ]
+
 
 const decoraciones = [
-  "Accesorio de Decoración Flores Luz 1",
-  "Accesorio de Decoración Flores Luz 2",
-  "FIGURAS FLUORESCENTES NEÓN SURTIDO",
-  "FIGURAS FLUORESCENTES 25x31 NEÓN SURTIDO",
-  "Accesorio de Decoración Flores Luz 3",
-  "Accesorio de Decoración Flores Luz 4",
-]
+  {
+    "name": "Accesorio de Decoración Flores Luz 1",
+    "description": ""
+  },  
+  {
+    "name": "Accesorio de Decoración Flores Luz 2",
+    "description": ""
+  },   
+  {
+    "name": "FIGURAS FLUORESCENTES NEÓN SURTIDO",
+    "description": ""
+  },   
+  {
+    "name": "FIGURAS FLUORESCENTES 25x31 NEÓN SURTIDO",
+    "description": ""
+  },   
+  {
+    "name": "Accesorio de Decoración Flores Luz 3",
+    "description": ""
+  },   
+  {
+    "name": "Accesorio de Decoración Flores Luz 4",
+  "description": ""},  ]
+
 
 const mapDeportes = createMap(deportivos, 'variedades', 'deportivos', 'para-todos')
 const mapJuegosDeMesa = createMap(juegosDeMesa, 'variedades', 'juegos-de-mesa', 'para-todos')
@@ -85,7 +210,8 @@ const llaveros = [
     slug: `llavero-41254`,
     clase: 'variedades',
     type: 'llaveros',
-    gender: 'niña'
+    gender: 'niña',
+    description: ''
   },
   {
     id: `llavero-41263`,
@@ -94,7 +220,8 @@ const llaveros = [
     slug: `llavero-41263`,
     clase: 'variedades',
     type: 'llaveros',
-    gender: 'niña'
+    gender: 'niña',
+    description: ''
   },
   {
     id: `llavero-41271`,
@@ -103,7 +230,8 @@ const llaveros = [
     slug: `llavero-41271`,
     clase: 'variedades',
     type: 'llaveros',
-    gender: 'niña'
+    gender: 'niña',
+    description: ''
   },
   {
     id: `llavero-41259`,
@@ -112,7 +240,8 @@ const llaveros = [
     slug: `llavero-41259`,
     clase: 'variedades',
     type: 'llaveros',
-    gender: 'niña'
+    gender: 'niña',
+    description: ''
   },
   {
     id: `llavero-41256`,
@@ -121,7 +250,8 @@ const llaveros = [
     slug: `llavero-41256`,
     clase: 'variedades',
     type: 'llaveros',
-    gender: 'niña'
+    gender: 'niña',
+    description: ''
   },
 
   {
@@ -131,7 +261,8 @@ const llaveros = [
     slug: `llavero-41278`,
     clase: 'variedades',
     type: 'llaveros',
-    gender: 'niña'
+    gender: 'niña',
+    description: ''
   },
   {
     id: `llavero-41273`,
@@ -140,7 +271,8 @@ const llaveros = [
     slug: `llavero-41273`,
     clase: 'variedades',
     type: 'llaveros',
-    gender: 'niña'
+    gender: 'niña',
+    description: ''
   },
   {
     id: `llavero-41277`,
@@ -149,7 +281,8 @@ const llaveros = [
     slug: `llavero-41277`,
     clase: 'variedades',
     type: 'llaveros',
-    gender: 'niña'
+    gender: 'niña',
+    description: ''
   },
   {
     id: `llavero-41266`,
@@ -158,7 +291,8 @@ const llaveros = [
     slug: `llavero-41266`,
     clase: 'variedades',
     type: 'llaveros',
-    gender: 'niña'
+    gender: 'niña',
+    description: ''
   },
   {
     id: `llavero-41258`,
@@ -167,7 +301,8 @@ const llaveros = [
     slug: `llavero-41258`,
     clase: 'variedades',
     type: 'llaveros',
-    gender: 'niña'
+    gender: 'niña',
+    description: ''
   },
   {
     id: `llavero-41280`,
@@ -176,7 +311,8 @@ const llaveros = [
     slug: `llavero-41280`,
     clase: 'variedades',
     type: 'llaveros',
-    gender: 'niña'
+    gender: 'niña',
+    description: ''
   },
   {
     id: `llavero-41279`,
@@ -185,7 +321,8 @@ const llaveros = [
     slug: `llavero-41279`,
     clase: 'variedades',
     type: 'llaveros',
-    gender: 'niña'
+    gender: 'niña',
+    description: ''
   },
   {
     id: `llavero-41257`,
@@ -194,7 +331,8 @@ const llaveros = [
     slug: `llavero-41257`,
     clase: 'variedades',
     type: 'llaveros',
-    gender: 'niña'
+    gender: 'niña',
+    description: ''
   },
   {
     id: `llavero-41274`,
@@ -203,7 +341,8 @@ const llaveros = [
     slug: `llavero-41274`,
     clase: 'variedades',
     type: 'llaveros',
-    gender: 'niña'
+    gender: 'niña',
+    description: ''
   },
   {
     id: `llavero-41272`,
@@ -212,7 +351,8 @@ const llaveros = [
     slug: `llavero-41272`,
     clase: 'variedades',
     type: 'llaveros',
-    gender: 'niña'
+    gender: 'niña',
+    description: ''
   },
   {
     id: `llavero-41255`,
@@ -221,7 +361,8 @@ const llaveros = [
     slug: `llavero-41255`,
     clase: 'variedades',
     type: 'llaveros',
-    gender: 'niña'
+    gender: 'niña',
+    description: ''
   },
   {
     id: `llavero-41264`,
@@ -230,7 +371,8 @@ const llaveros = [
     slug: `llavero-41264`,
     clase: 'variedades',
     type: 'llaveros',
-    gender: 'niña'
+    gender: 'niña',
+    description: ''
   },
   {
     id: `llavero-41268`,
@@ -239,7 +381,8 @@ const llaveros = [
     slug: `llavero-41268`,
     clase: 'variedades',
     type: 'llaveros',
-    gender: 'niña'
+    gender: 'niña',
+    description: ''
   },
   {
     id: `llavero-41260`,
@@ -248,7 +391,8 @@ const llaveros = [
     slug: `llavero-41260`,
     clase: 'variedades',
     type: 'llaveros',
-    gender: 'niña'
+    gender: 'niña',
+    description: ''
   },
   {
     id: `llavero-41261`,
@@ -257,7 +401,8 @@ const llaveros = [
     slug: `llavero-41261`,
     clase: 'variedades',
     type: 'llaveros',
-    gender: 'niña'
+    gender: 'niña',
+    description: ''
   },
   {
     id: `llavero-41267`,
@@ -266,7 +411,8 @@ const llaveros = [
     slug: `llavero-41267`,
     clase: 'variedades',
     type: 'llaveros',
-    gender: 'niña'
+    gender: 'niña',
+    description: ''
   },
   {
     id: `llavero-41276`,
@@ -275,7 +421,8 @@ const llaveros = [
     slug: `llavero-41276`,
     clase: 'variedades',
     type: 'llaveros',
-    gender: 'niña'
+    gender: 'niña',
+    description: ''
   },
   {
     id: `llavero-41262`,
@@ -284,7 +431,8 @@ const llaveros = [
     slug: `llavero-41262`,
     clase: 'variedades',
     type: 'llaveros',
-    gender: 'niña'
+    gender: 'niña',
+    description: ''
   },
   {
     id: `llavero-35318`,
@@ -293,7 +441,8 @@ const llaveros = [
     slug: `llavero-35318`,
     clase: 'variedades',
     type: 'llaveros',
-    gender: 'niña'
+    gender: 'niña',
+    description: ''
   },
   {
     id: `llavero-41275`,
@@ -302,7 +451,8 @@ const llaveros = [
     slug: `llavero-41275`,
     clase: 'variedades',
     type: 'llaveros',
-    gender: 'niña'
+    gender: 'niña',
+    description: ''
   },
   {
     id: `llavero-35317`,
@@ -311,7 +461,8 @@ const llaveros = [
     slug: `llavero-35317`,
     clase: 'variedades',
     type: 'llaveros',
-    gender: 'niña'
+    gender: 'niña',
+    description: ''
   },
   {
     id: `llavero-41270`,
@@ -320,7 +471,8 @@ const llaveros = [
     slug: `llavero-41270`,
     clase: 'variedades',
     type: 'llaveros',
-    gender: 'niña'
+    gender: 'niña',
+    description: ''
   },
   {
     id: `llavero-41265`,
@@ -329,7 +481,8 @@ const llaveros = [
     slug: `llavero-41265`,
     clase: 'variedades',
     type: 'llaveros',
-    gender: 'niña'
+    gender: 'niña',
+    description: ''
   },
   {
     id: `llavero-41269`,
@@ -338,7 +491,8 @@ const llaveros = [
     slug: `llavero-41269`,
     clase: 'variedades',
     type: 'llaveros',
-    gender: 'niña'
+    gender: 'niña',
+    description: ''
   },
 ]
 

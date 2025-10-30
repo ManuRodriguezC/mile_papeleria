@@ -5,10 +5,22 @@ import { papeleria } from './papeleria';
 
 type Producto = 'cuaderno' | 'papeleria' | 'variedades' | 'multiproductos' | 'fiestas' | 'contacto';
 
+export interface ProductComplete {
+      id: string;
+      title: string;
+      image: string;
+      slug: string;
+      clase: string;
+      type: string;
+      gender: string;
+      description: string;
+}
+
 export interface ProductoMap {
   name: string;
   description?: string;
 }
+
 export function createslug(name: string) {
   return name.replaceAll(" ", "-").toLowerCase()
 }
@@ -48,7 +60,7 @@ export const generoPorProducto = {
 
 export const tiposProducto = {
   cuaderno: ["todos-los-productos", "cosido", "argollado", "durabook"],
-  papeleria: ["todos-los-productos", "boligrafos"],
+  papeleria: ["todos-los-productos", "escritura", "arte", "oficina", "papeles", "tableros", "utiles", "agenda"],
   variedades: ["todos-los-productos", "llaveros", "deportivos", "juegos-de-mesa", "modisteria", "chelines-&-ganchos", "flores-&-figuras-decorativas"],
   multiproductos: ["para-todos"],
   fiestas: ["todos-los-productos", "globos", "cortinas", "festones", "para-la-mesa", "sobres-regalos", "otros"],

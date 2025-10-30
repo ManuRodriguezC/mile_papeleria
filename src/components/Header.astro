@@ -1,9 +1,8 @@
+---
+import SearchBar from "./tsx/SearchBar";
+---
+
 <header class="fixed h-auto w-full border-b bg-purple-900 z-50 rounded-b-2xl shadow-2xl">
-    <!-- <input
-        type="text"
-        placeholder="Buscar..."
-        class="absolute right-10 top-3 bg-white mt-2 rounded-md border px-3 py-1 text-lg focus:outline-none focus:ring"
-        /> -->
     <nav class="flex flex-row items-center justify-around h-full px-4">
         <!-- Sección izquierda -->
         <ul class="flex space-x-8 text-2xl font-semibold text-white">
@@ -30,7 +29,9 @@
         <ul class="flex space-x-8 text-2xl font-semibold text-white">
             <li><a href="#" class="hover:underline">Multiproductos</a></li>
             <li><a href="/productos/fiestas/para-todos/todos-los-productos/1" class="hover:underline">Fiesta</a></li>
-            <li><a href="#" class="hover:underline">Contacto</a></li>
+            <li>
+                <SearchBar client:load />
+            </li>
         </ul>
     </nav>
 </header>
@@ -39,7 +40,7 @@
     window.addEventListener('scroll', () => {
         const image = document.getElementById('image-logo');
         if (!image) return;
-        console.log(window.scrollY);
+
         if (window.scrollY > 0) {
             image.classList.add('h-[80px]');
             image.classList.remove('h-[150px]');

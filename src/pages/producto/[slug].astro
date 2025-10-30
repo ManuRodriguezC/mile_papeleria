@@ -1,17 +1,52 @@
 ---
 import { todosLosProductos } from "@/lib/tiposProductos";
 import Layout from "@layouts/Layout.astro";
+import BackPage from "../../components/BackPage.astro";
+
 const { slug } = Astro.params;
 const filterProduct = todosLosProductos.find(prod => prod.slug === slug);
+const sameProducts = todosLosProductos.filter(prod => prod.clase === filterProduct?.clase && prod.type === filterProduct?.type && prod.gender === filterProduct.gender && prod.slug !== filterProduct?.slug);
 ---
 <Layout>
-  <div>
-    <h1>{filterProduct?.title}</h1>
-    <img
-      src={filterProduct?.image}
-      alt={filterProduct?.title}
-      class="w-auto h-[300px] object-cover"
-      loading="lazy"
-    />
+  <div class="w-full h-full justify-center items-center flex flex-col gap-4 p-8">
+    <div class="w-full h-full flex flex-row justify-between items-start">
+      <a class="hover:scale-115 transition-all duration-300" href=`/productos/${filterProduct?.clase}/para-todos/${filterProduct?.type}/1`>
+        <BackPage />
+      </a>
+      <div class="flex flex-col justify-center items-center">
+        <h1 class="text-2xl italic">{filterProduct?.title}</h1>
+        <img
+          src={filterProduct?.image}
+          alt={filterProduct?.title}
+          class="w-auto h-[400px] object-cover"
+          loading="lazy"
+        />
+        <p class="text-lg mt-4 text-center italic text-gray-600">{filterProduct?.description}</p>
+      </div>
+      <div class="border-2 border-purple-400 rounded-2xl p-4 shadow-2xl">
+        <div class="flex flex-col gap-4">
+          <h2 class="text-xl font-bold text-purple-900 text-center">Productos similares</h2>
+          <div class="h-[400px] overflow-y-auto flex flex-col gap-2">
+            {
+              sameProducts.map(prod => (
+                <a
+                  href={`/producto/${prod.slug}`}
+                  class="flex flex-col gap-2 items-center hover:bg-purple-100 p-2 rounded-lg transition-all duration-300"
+                >
+                  <img
+                    src={prod.image}
+                    alt={prod.title}
+                    class="w-16 h-16 object-cover rounded-md"
+                    loading="lazy"
+                  />
+                  <span class="text-sm">{prod.title}</span>
+                </a>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+    
   </div>
 </Layout>
