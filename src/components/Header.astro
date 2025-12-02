@@ -39,9 +39,9 @@ import SearchBar from "./tsx/SearchBar";
         <ul class="hidden md:flex flex-col lg:flex-row gap-3 lg:gap-0 space-x-8 text-md lg:text-2xl font-semibold text-white">
             <li class="hidden sm:block w-full text-center"><a href="/productos/multiproductos/para-todos/todos/1" class="hover:underline">Multiproductos</a></li>
             <li class="hidden sm:block w-full text-center"><a href="/productos/fiestas/para-todos/todos/1" class="hover:underline">Fiesta</a></li>
-            <li id="search-button" class="hidden sm:block w-full text-center">
+            <div class="hidden sm:block w-full text-center">
                 <SearchBar client:load />
-            </li>
+            </div>
         </ul>
     </nav>
     <style>
