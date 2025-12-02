@@ -39,7 +39,7 @@ import SearchBar from "./tsx/SearchBar";
         <ul class="hidden md:flex flex-col lg:flex-row gap-3 lg:gap-0 space-x-8 text-md lg:text-2xl font-semibold text-white">
             <li class="hidden sm:block w-full text-center"><a href="/productos/multiproductos/para-todos/todos/1" class="hover:underline">Multiproductos</a></li>
             <li class="hidden sm:block w-full text-center"><a href="/productos/fiestas/para-todos/todos/1" class="hover:underline">Fiesta</a></li>
-            <li class="hidden sm:block w-full text-center">
+            <li id="search-button" class="hidden sm:block w-full text-center">
                 <SearchBar client:load />
             </li>
         </ul>
@@ -71,7 +71,7 @@ import SearchBar from "./tsx/SearchBar";
         const header = document.querySelector("header");
 
         const menuButton = header?.querySelector("#home") as HTMLButtonElement | null;
-        const items = header?.querySelectorAll("ul li") as NodeListOf<HTMLLIElement>;
+        const items = header?.querySelectorAll("ul li:not(#search-phone)") as NodeListOf<HTMLLIElement>;
         const ul = header?.querySelector("ul") as HTMLUListElement | null;
         const searchInput = header?.querySelector("#search-phone") as HTMLElement | null;
 
