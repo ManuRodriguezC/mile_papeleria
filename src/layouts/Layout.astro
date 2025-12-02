@@ -1,5 +1,6 @@
 ---
 const { title } = Astro.props;
+import WhatsappButton from '@/components/WhatsappButton.astro';
 import Header from '../components/Header.astro';
 import "../styles/global.css";
 ---
@@ -18,6 +19,7 @@ import "../styles/global.css";
 		<div class="pt-44">
 			<slot />
 		</div>
+		<WhatsappButton />
 	</body>
 </html>
 
@@ -28,4 +30,15 @@ import "../styles/global.css";
 		width: 100%;
 		height: 100%;
 	}
+	ul.mobile li {
+			max-height: 0;
+			overflow: hidden;
+			transition: max-height 0.35s ease;
+	}
+
+	ul.mobile li.open {
+			max-height: 200px;
+	}
+
+
 </style>

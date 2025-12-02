@@ -2,6 +2,7 @@ import { cuadernos } from '@lib/cuadernos';
 import { variedades } from '@lib/variedades';
 import { fiestas } from './fiestas';
 import { papeleria } from './papeleria';
+import { multiproductosList } from './kilpp'
 
 type Producto = 'cuaderno' | 'papeleria' | 'variedades' | 'multiproductos' | 'fiestas' | 'contacto';
 
@@ -59,11 +60,11 @@ export const generoPorProducto = {
 };
 
 export const tiposProducto = {
-  cuaderno: ["todos-los-productos", "cosido", "argollado", "durabook"],
-  papeleria: ["todos-los-productos", "escritura", "arte", "oficina", "papeles", "tableros", "utiles", "agenda"],
-  variedades: ["todos-los-productos", "llaveros", "deportivos", "juegos-de-mesa", "modisteria", "chelines-&-ganchos", "flores-&-figuras-decorativas"],
-  multiproductos: ["para-todos"],
-  fiestas: ["todos-los-productos", "globos", "cortinas", "festones", "para-la-mesa", "sobres-regalos", "otros"],
+  cuaderno: ["todos", "cosido", "argollado", "durabook"],
+  papeleria: ["todos", "escritura", "arte", "oficina", "papeles", "tableros", "utiles", "agenda"],
+  variedades: ["todos", "llaveros", "deportivos", "juegos-de-mesa", "modisteria", "chelines-&-ganchos", "flores-&-figuras-decorativas"],
+  multiproductos: ["todos", "colores-y-lapices", "utiles"],
+  fiestas: ["todos", "globos", "cortinas", "festones", "para-la-mesa", "sobres-regalos", "otros"],
   contacto: ["para-todos"],
 }
 
@@ -71,7 +72,6 @@ export const todosLosProductos = [
   ...cuadernos,
   ...variedades,
   ...fiestas,
-  ...papeleria
+  ...papeleria,
+  ...multiproductosList,
 ]
-
-

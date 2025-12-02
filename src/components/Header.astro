@@ -1,14 +1,21 @@
 ---
+import Menu from "./icons/Menu.astro";
 import SearchBar from "./tsx/SearchBar";
 ---
 
 <header class="fixed h-auto w-full border-b bg-purple-900 z-50 rounded-b-2xl shadow-2xl">
-    <nav class="flex flex-row items-center justify-around h-full px-4">
+    <nav class="flex flex-row items-center justify-around h-full px-4 py-2 lg:py-0">
         <!-- Sección izquierda -->
-        <ul class="flex space-x-8 text-2xl font-semibold text-white">
-            <li><a href="/productos/cuaderno/para-todos/todos-los-productos/1" class="hover:underline">Cuadernos</a></li>
-            <li><a href="/productos/papeleria/para-todos/todos-los-productos/1" class="hover:underline">Papeleria</a></li>
-            <li><a href="/productos/variedades/para-todos/todos-los-productos/1" class="hover:underline">Variedades</a></li>
+        <ul class="flex flex-col lg:flex-row gap-3 lg:gap-0 space-x-8 text-md lg:text-2xl font-semibold text-white">
+
+            <li class="w-full text-center"><a href="/productos/cuaderno/para-todos/todos/1" class="hover:underline">Cuadernos</a></li>
+            <li class="w-full text-center"><a href="/productos/papeleria/para-todos/todos/1" class="hover:underline">Papeleria</a></li>
+            <button class="flex sm:hidden w-full items-center justify-center">
+                <Menu />
+            </button>
+            <li class="w-full text-center"><a href="/productos/variedades/para-todos/todos/1" class="hover:underline">Variedades</a></li>
+            <li class="block sm:hidden w-full text-center"><a href="/productos/multiproductos/para-todos/todos/1" class="hover:underline">Multiproductos</a></li>
+            <li class="block sm:hidden w-full text-center"><a href="/productos/fiestas/para-todos/todos/1" class="hover:underline">Fiesta</a></li>
         </ul>
         
         <!-- Logo centrado con buscador -->
@@ -23,17 +30,27 @@ import SearchBar from "./tsx/SearchBar";
                 loading="lazy"
                 class="h-[150px] w-auto bg-white rounded-2xl my-2 transition-all duration-300" />
             </a>
+            <li id="search-phone" class="block sm:hidden w-full text-center">
+                <SearchBar client:load />
+            </li>
         </div>
         
         <!-- Sección derecha -->
-        <ul class="flex space-x-8 text-2xl font-semibold text-white">
-            <li><a href="#" class="hover:underline">Multiproductos</a></li>
-            <li><a href="/productos/fiestas/para-todos/todos-los-productos/1" class="hover:underline">Fiesta</a></li>
-            <li>
+        <ul class="hidden md:flex flex-col lg:flex-row gap-3 lg:gap-0 space-x-8 text-md lg:text-2xl font-semibold text-white">
+            <li class="hidden sm:block w-full text-center"><a href="/productos/multiproductos/para-todos/todos/1" class="hover:underline">Multiproductos</a></li>
+            <li class="hidden sm:block w-full text-center"><a href="/productos/fiestas/para-todos/todos/1" class="hover:underline">Fiesta</a></li>
+            <li class="hidden sm:block w-full text-center">
                 <SearchBar client:load />
             </li>
         </ul>
     </nav>
+    <style>
+        ul.mobile li {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+    </style>
 </header>
 
 <script>
@@ -49,4 +66,58 @@ import SearchBar from "./tsx/SearchBar";
             image.classList.remove('h-[80px]');
         }
     });
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const header = document.querySelector("header");
+
+        const menuButton = header?.querySelector("ul > button") as HTMLButtonElement | null;
+        const items = header?.querySelectorAll("ul li") as NodeListOf<HTMLLIElement>;
+        const ul = header?.querySelector("ul") as HTMLUListElement | null;
+        const searchInput = header?.querySelector("#search-phone") as HTMLElement | null;
+
+        function applyResponsiveMenu() {
+            if (window.innerWidth <= 800) {
+                if (!menuButton || !ul) return;
+                menuButton.style.display = "flex";
+                ul.classList.add("mobile");
+
+                items.forEach(li => {
+                    li.style.maxHeight = "0";
+                    li.style.overflow = "hidden";
+                    li.style.transition = "max-height 0.3s ease";
+                });
+                searchInput?.classList.add("hidden");
+
+            } else {
+                if (!menuButton || !ul) return;
+                menuButton.style.display = "none";
+                ul.classList.remove("mobile");
+
+                items.forEach(li => {
+                    li.style.maxHeight = "none";
+                    li.style.overflow = "visible";
+                });
+                searchInput?.classList.remove("hidden");
+
+            }
+        }
+
+        // Activar/desactivar el menú
+        if (!menuButton) return;
+        menuButton.addEventListener("click", () => {
+            items.forEach(li => {
+                if (li.style.maxHeight === "0px" || li.style.maxHeight === "0") {
+                    li.style.maxHeight = "200px"; // animación desplegable
+                } else {
+                    li.style.maxHeight = "0";
+                }
+            });
+            searchInput?.classList.toggle("hidden");
+        });
+
+        // Aplicar en carga y en cambio de tamaño
+        applyResponsiveMenu();
+        window.addEventListener("resize", applyResponsiveMenu);
+    });
+
 </script>

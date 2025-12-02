@@ -6,26 +6,19 @@ import { Autoplay, Navigation, Pagination } from "swiper/modules";
 
 export const sectores = [
   {
-    title: "STRETCH FILMS",
+    title: "Productos NORMA",
     description:
-      "Protege tus productos con eficiencia y calidad. Stretch Films que garantizan resistencia, seguridad y máxima protección en cada embalaje.",
+      "Encuentra los mejores productos norma con nosotros.",
     image: "norma.webp",
     backgraund: "bg-custom-gradient",
   },
   {
-    title: "CINTA ADHESIVA",
+    title: "Cuardernos",
     description:
-      "Unión segura para cada aplicación. Nuestras cintas adhesivas ofrecen durabilidad y precisión para mantener tus productos intactos.",
+      "Los mejores cuadernos para que empieces tu temporada escolar",
     image: "promo.webp",
     backgraund: "bg-custom-blue-gradient",
   },
-  {
-    title: "BOLSAS DE BASURA",
-    description:
-      "Resistencia y confianza en cada bolsa. Soluciones prácticas y duraderas para una gestión de residuos eficiente y segura.",
-    image: "norma.webp",
-    backgraund: "bg-custom-blue2-gradient",
-  }
 ];
 
 
