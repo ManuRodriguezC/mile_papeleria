@@ -14,7 +14,7 @@ export default function SearchBar() {
   return (
     <>
       <form className="form" onSubmit={handleSubmit}>
-        <label htmlFor="search">
+        <div>
           <input
             className="input"
             type="text"
@@ -41,7 +41,7 @@ export default function SearchBar() {
               </g>
             </svg>
           </div>
-        </label>
+        </div>
       </form>
 
       <style>
