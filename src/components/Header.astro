@@ -30,18 +30,18 @@ import SearchBar from "./tsx/SearchBar";
                 loading="lazy"
                 class="h-[150px] w-auto bg-white rounded-2xl my-2 transition-all duration-300" />
             </a>
-            <li id="search-phone" class="block sm:hidden w-full text-center">
+            <div id="search-phone" class="block sm:hidden w-full text-center">
                 <SearchBar client:load />
-            </li>
+            </div>
         </div>
         
         <!-- Sección derecha -->
         <ul class="hidden md:flex flex-col lg:flex-row gap-3 lg:gap-0 space-x-8 text-md lg:text-2xl font-semibold text-white">
             <li class="hidden sm:block w-full text-center"><a href="/productos/multiproductos/para-todos/todos/1" class="hover:underline">Multiproductos</a></li>
             <li class="hidden sm:block w-full text-center"><a href="/productos/fiestas/para-todos/todos/1" class="hover:underline">Fiesta</a></li>
-            <div class="hidden sm:block w-full text-center">
+            <li class="hidden sm:block w-full text-center">
                 <SearchBar client:load />
-            </div>
+            </li>
         </ul>
     </nav>
     <style>
