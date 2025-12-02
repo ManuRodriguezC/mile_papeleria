@@ -10,7 +10,7 @@ import SearchBar from "./tsx/SearchBar";
 
             <li class="w-full text-center"><a href="/productos/cuaderno/para-todos/todos/1" class="hover:underline">Cuadernos</a></li>
             <li class="w-full text-center"><a href="/productos/papeleria/para-todos/todos/1" class="hover:underline">Papeleria</a></li>
-            <button class="flex sm:hidden w-full items-center justify-center">
+            <button id="home" class="flex sm:hidden w-full items-center justify-center">
                 <Menu />
             </button>
             <li class="w-full text-center"><a href="/productos/variedades/para-todos/todos/1" class="hover:underline">Variedades</a></li>
@@ -70,7 +70,7 @@ import SearchBar from "./tsx/SearchBar";
     document.addEventListener("DOMContentLoaded", () => {
         const header = document.querySelector("header");
 
-        const menuButton = header?.querySelector("ul > button") as HTMLButtonElement | null;
+        const menuButton = header?.querySelector("#home") as HTMLButtonElement | null;
         const items = header?.querySelectorAll("ul li") as NodeListOf<HTMLLIElement>;
         const ul = header?.querySelector("ul") as HTMLUListElement | null;
         const searchInput = header?.querySelector("#search-phone") as HTMLElement | null;
